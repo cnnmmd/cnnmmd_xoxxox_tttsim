@@ -1,0 +1,15 @@
+networks:
+  default:
+    name: xoxxox_netmid
+    external: true
+services:
+  xoxxox_tttsim:
+    image: xoxxox_envweb:001
+    container_name: xoxxox_tttsim
+    volumes:
+    - ../../../export:/opt/common
+    env_file:
+    - ./envdir.txt
+    ports:
+    - 10301:80
+    command: "python /opt/common/bin/xoxxox/srvttt.py --engine xoxxox/engine_tttsim"
