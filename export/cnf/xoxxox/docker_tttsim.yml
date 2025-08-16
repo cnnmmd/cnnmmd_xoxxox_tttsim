@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   xoxxox_tttsim:
-    image: xoxxox_envweb:001
+    image: xoxxox/envweb:001
     container_name: xoxxox_tttsim
     volumes:
     - ../../../export:/opt/common
