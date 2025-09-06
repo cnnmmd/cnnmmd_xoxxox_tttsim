@@ -19,12 +19,11 @@ class TttPrc:
         self.postxt[keytxt] = 0
         if self.output == "random":
           random.shuffle(self.dictxt[keytxt])
-
-    self.conlog = LibLog.getlog(diccnf["conlog"])
-    self.conlog.catsys(diccnf)
+    self.conlog = LibLog.getlog(diccnf["conlog"]) # PRM
+    self.conlog.catsys(diccnf) # PRM
 
   def infere(self, txtreq):
-    prompt = self.conlog.catreq(txtreq)
+    prompt = self.conlog.catreq(txtreq) # PRM
     print("prompt[" + prompt + "]", flush=True) # DBG
     keytxt = txtreq
     try:
@@ -35,6 +34,11 @@ class TttPrc:
       self.postxt[keytxt] = 0
       if self.output == "random":
         random.shuffle(self.dictxt[keytxt])
-    txtres = self.dictxt[keytxt][self.postxt[keytxt]]
+    txtifr = self.dictxt[keytxt][self.postxt[keytxt]]
+    print("txtifr[" + txtifr + "]", flush=True) # DBG
+    txtres, txtana = self.conlog.arrres(txtifr) # PRM
+    print("txtres[" + txtres + "]", flush=True) # DBG
+    print("txtana[" + txtana + "]", flush=True) # DBG
+    self.conlog.catres(txtres) # PRM
     self.postxt[keytxt] = self.postxt[keytxt] + 1
     return txtres
