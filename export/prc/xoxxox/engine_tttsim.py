@@ -32,4 +32,4 @@ class TttPrc:
         random.shuffle(self.dictxt[keytxt])
     txtres = self.dictxt[keytxt][self.postxt[keytxt]]
     self.postxt[keytxt] = self.postxt[keytxt] + 1
-    return txtres
+    return (txtres, "")
